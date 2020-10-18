@@ -23,13 +23,13 @@ type StructParams struct {
 }
 
 type FuncParams struct{
-	Url				string		`json:"url"`			// /user/create
+	Url			string		`json:"url"`			// /user/create
 	Auth 			bool		`json:"auth"`			// true
 	Method	 		string		`json:"method"`			// POST
-	Name			string								// create
-	Param			string								// CreateParams
-	ReturnValue 	string								// NewUser(Struct)
-	ApiName			string								// MyApi
+	Name			string						// create
+	Param			string						// CreateParams
+	ReturnValue 		string						// NewUser(Struct)
+	ApiName			string						// MyApi
 	StructParams	[]ValidParams
 }
 
@@ -44,8 +44,8 @@ type AllParams struct {
 }
 
 type ValidParams struct{
-	StructName		string
-	Fields	 		map[string]AllParams
+	StructName	string
+	Fields	 	map[string]AllParams
 }
 
 func (s* ServeHttpParams) addFunc(f FuncParams){
@@ -283,7 +283,7 @@ func main() {
 	}
 
 	hasSeen := false
-	//fix, because this is boolshit
+
 	for i := 1; i < len(serveParams.FuncParams); i++ {
 		if serveParams.FuncParams[i-1].ApiName == serveParams.FuncParams[i].ApiName {
 			if (!hasSeen) {
