@@ -489,6 +489,7 @@ func addToTable(db *sql.DB, path string, body map[string]interface{}) (string, i
 	var fields, name, returnField string
 	i :=0
 	for k, v := range NewBody {
+		//Dirty Hack. Need to parse Extra field(AutoIncrement) and increase value
 		if k == "id" {
 			i++
 		}else{
